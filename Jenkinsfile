@@ -20,7 +20,16 @@ pipeline{
                 sh "npm test"
             }
         }
+stage('Release') {
 
-        // Add the Release stage here
-    }
+ steps {
+
+ sh '''
+
+ oc project evnuvi-greetings
+
+ oc start-build greeting-console --follow --wait
+
+ '''
+ }}}
 }
